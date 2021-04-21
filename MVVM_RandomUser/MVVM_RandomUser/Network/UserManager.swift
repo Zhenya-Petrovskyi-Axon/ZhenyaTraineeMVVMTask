@@ -21,17 +21,17 @@ protocol UserManagerProtocol: class {
 
 class UserManager: UserManagerProtocol {
     
-    private let baseUrl = "https://randomuser.me/api/?seed=abc"
-    private let resulsPerPage = "&results=20"
+    private let baseUrl = "https://randomuser.me/api/?seed=abc&results="
     private let resultsForPage = "&page="
-    private let currentPage = 1
+    private let resultsPerPage = 20
+    private var currentPage = 1
     
     private let session = URLSession.shared
     private let decoder = JSONDecoder()
     
     func getUsers(pagination: Bool = false, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
-        let fullUrl = "\(baseUrl)\(resulsPerPage)\(resultsForPage)\(currentPage)"
+        let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(currentPage)"
         
         guard let url = URL(string: fullUrl) else {
             completion(.failure(.urlIsNotValid))
@@ -59,6 +59,7 @@ class UserManager: UserManagerProtocol {
                 do {
                     let users = try self.decoder.decode(Users.self, from: data)
                     completion(.success(users.results))
+                    self.currentPage += 1
                 } catch  {
                     completion(.failure(.unableToDecode))
                 }
