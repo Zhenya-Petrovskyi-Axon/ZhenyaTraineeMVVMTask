@@ -10,7 +10,14 @@ import Foundation
 class UsersViewModel: NSObject {
     
     private var apiManager: APIManager!
+    private(set) var usersData: [User]! {
+        didSet {
+            self.bindUsersViewModelToController()
+        }
+    }
     
+    var bindUsersViewModelToController : (() -> ()) = {}
+
     override init() {
         super.init()
         self.apiManager = APIManager()
@@ -18,10 +25,10 @@ class UsersViewModel: NSObject {
     }
     
     func getUsersData() {
-        apiManager.getUsers { result in
-            switch result {
+        apiManager.getUsers { [weak self] userData in
+            switch userData {
             case .success(let users):
-                print(users)
+                self?.usersData = users
             case .failure(let error):
                 print(error.localizedDescription)
             }
