@@ -7,12 +7,6 @@
 
 import Foundation
 
-// MARK: - Users
-struct Users: Codable {
-    let results: [User]
-    let info: Info
-}
-
 // MARK: - Info
 struct Info: Codable {
     let seed: String

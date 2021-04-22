@@ -16,6 +16,7 @@
 		4505BFB8263065B80038ADF3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFB7263065B80038ADF3 /* APIManager.swift */; };
 		4505BFBC2630680C0038ADF3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFBB2630680C0038ADF3 /* User.swift */; };
 		4544A95F263178230015AE5D /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544A95E263178230015AE5D /* UserEndPoint.swift */; };
+		4544A963263178940015AE5D /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544A962263178940015AE5D /* UsersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4505BFB7263065B80038ADF3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4505BFBB2630680C0038ADF3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4544A95E263178230015AE5D /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
+		4544A962263178940015AE5D /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		4505BFA0263062DA0038ADF3 /* MVVM_RandomUser */ = {
 			isa = PBXGroup;
 			children = (
+				4544A961263178770015AE5D /* UsersViewModel */,
 				4505BFB62630658C0038ADF3 /* Network */,
 				4544A95D263178000015AE5D /* Model */,
 				4505BFA1263062DA0038ADF3 /* AppDelegate.swift */,
@@ -90,6 +93,14 @@
 				4544A95E263178230015AE5D /* UserEndPoint.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4544A961263178770015AE5D /* UsersViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4544A962263178940015AE5D /* UsersViewModel.swift */,
+			);
+			path = UsersViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4505BFB8263065B80038ADF3 /* APIManager.swift in Sources */,
+				4544A963263178940015AE5D /* UsersViewModel.swift in Sources */,
 				4505BFA6263062DA0038ADF3 /* ViewController.swift in Sources */,
 				4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */,
 				4544A95F263178230015AE5D /* UserEndPoint.swift in Sources */,
