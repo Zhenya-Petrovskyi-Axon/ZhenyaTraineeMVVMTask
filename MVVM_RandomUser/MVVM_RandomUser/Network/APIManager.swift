@@ -15,11 +15,11 @@ enum NetworkError: Error {
     case responseIsNotValid(Int)
 }
 
-protocol UserManagerProtocol: class {
+protocol APIManagerProtocol: class {
     func getUsers(pagination: Bool, completion: @escaping (Result<[User], NetworkError>) -> Void)
 }
 
-class UserManager: UserManagerProtocol {
+class APIManager: NSObject, APIManagerProtocol {
     
     private let baseUrl = "https://randomuser.me/api/?seed=abc&results="
     private let resultsForPage = "&page="

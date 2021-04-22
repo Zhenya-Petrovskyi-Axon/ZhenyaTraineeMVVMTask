@@ -13,7 +13,7 @@
 		4505BFA9263062DA0038ADF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFA7263062DA0038ADF3 /* Main.storyboard */; };
 		4505BFAB263062DB0038ADF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFAA263062DB0038ADF3 /* Assets.xcassets */; };
 		4505BFAE263062DB0038ADF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFAC263062DB0038ADF3 /* LaunchScreen.storyboard */; };
-		4505BFB8263065B80038ADF3 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFB7263065B80038ADF3 /* UserManager.swift */; };
+		4505BFB8263065B80038ADF3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFB7263065B80038ADF3 /* APIManager.swift */; };
 		4505BFBC2630680C0038ADF3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFBB2630680C0038ADF3 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		4505BFAA263062DB0038ADF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4505BFAD263062DB0038ADF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4505BFAF263062DB0038ADF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4505BFB7263065B80038ADF3 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		4505BFB7263065B80038ADF3 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4505BFBB2630680C0038ADF3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +75,7 @@
 		4505BFB62630658C0038ADF3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				4505BFB7263065B80038ADF3 /* UserManager.swift */,
+				4505BFB7263065B80038ADF3 /* APIManager.swift */,
 				4505BFBB2630680C0038ADF3 /* User.swift */,
 			);
 			path = Network;
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4505BFB8263065B80038ADF3 /* UserManager.swift in Sources */,
+				4505BFB8263065B80038ADF3 /* APIManager.swift in Sources */,
 				4505BFA6263062DA0038ADF3 /* ViewController.swift in Sources */,
 				4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */,
 				4505BFBC2630680C0038ADF3 /* User.swift in Sources */,
