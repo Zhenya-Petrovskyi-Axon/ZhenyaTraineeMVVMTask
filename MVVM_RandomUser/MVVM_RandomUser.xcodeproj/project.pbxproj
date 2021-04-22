@@ -64,9 +64,9 @@
 		4505BFA0263062DA0038ADF3 /* MVVM_RandomUser */ = {
 			isa = PBXGroup;
 			children = (
-				4505BFB62630658C0038ADF3 /* Network */,
+				4505BFB62630658C0038ADF3 /* NetworkLayer */,
 				4544A95D263178000015AE5D /* Model */,
-				4544A961263178770015AE5D /* UsersViewModel */,
+				4544A9682631A05C0015AE5D /* MainViewModule */,
 				4505BFA1263062DA0038ADF3 /* AppDelegate.swift */,
 				4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */,
 				4505BFA5263062DA0038ADF3 /* ViewController.swift */,
@@ -78,13 +78,13 @@
 			path = MVVM_RandomUser;
 			sourceTree = "<group>";
 		};
-		4505BFB62630658C0038ADF3 /* Network */ = {
+		4505BFB62630658C0038ADF3 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
 				4505BFB7263065B80038ADF3 /* APIManager.swift */,
 				4505BFBB2630680C0038ADF3 /* User.swift */,
 			);
-			path = Network;
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		4544A95D263178000015AE5D /* Model */ = {
@@ -101,6 +101,14 @@
 				4544A962263178940015AE5D /* UsersViewModel.swift */,
 			);
 			path = UsersViewModel;
+			sourceTree = "<group>";
+		};
+		4544A9682631A05C0015AE5D /* MainViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				4544A961263178770015AE5D /* UsersViewModel */,
+			);
+			path = MainViewModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
