@@ -64,9 +64,9 @@
 		4505BFA0263062DA0038ADF3 /* MVVM_RandomUser */ = {
 			isa = PBXGroup;
 			children = (
-				4544A961263178770015AE5D /* UsersViewModel */,
 				4505BFB62630658C0038ADF3 /* Network */,
 				4544A95D263178000015AE5D /* Model */,
+				4544A961263178770015AE5D /* UsersViewModel */,
 				4505BFA1263062DA0038ADF3 /* AppDelegate.swift */,
 				4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */,
 				4505BFA5263062DA0038ADF3 /* ViewController.swift */,

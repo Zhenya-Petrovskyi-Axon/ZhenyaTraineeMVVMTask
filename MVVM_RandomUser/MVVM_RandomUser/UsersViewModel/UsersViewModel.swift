@@ -12,11 +12,11 @@ class UsersViewModel: NSObject {
     private var apiManager: APIManager!
     private(set) var usersData: [User]! {
         didSet {
-            self.bindUsersViewModelToController()
+            self.bindUsersVMToController()
         }
     }
     
-    var bindUsersViewModelToController : (() -> ()) = {}
+    var bindUsersVMToController : (() -> ()) = {}
 
     override init() {
         super.init()
