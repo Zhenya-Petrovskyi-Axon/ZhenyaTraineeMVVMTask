@@ -26,6 +26,9 @@ struct User: Codable {
     let id: ID
     let picture: Picture
     let nat: String
+    var fullname: String {
+        return "\(name.title) \(name.first) \(name.last)"
+    }
 }
 
 // MARK: - Dob
