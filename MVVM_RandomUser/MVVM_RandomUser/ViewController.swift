@@ -54,21 +54,30 @@ extension ViewController: UICollectionViewDelegate {
 }
 
 extension ViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return usersViewModel.usersData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
-        
         let item = usersViewModel.usersData[indexPath.row]
         
         cell.userName.text = item.fullname
         
-        let url = URL(string: "\(item.picture.large)")
-        cell.userImage.kf.setImage(with: url)
+        if let url = URL(string: "\(item.picture.large)") {
+            cell.userImage.kf.setImage(with: url)
+        }
         
         return cell
     }
+    
 }
 
+//extension ViewController: UICollectionViewDelegateFlowLayout {
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//            return CGSize(width: UIScreen.main.bounds.width / 2.0, height: UIScreen.main.bounds.width / 2.0)
+//        }
+//    
+//}

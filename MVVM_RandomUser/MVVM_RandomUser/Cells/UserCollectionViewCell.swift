@@ -12,11 +12,6 @@ class UserCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     
-    var user: User? {
-        didSet {
-            userName.text = user?.fullname
-        }
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
