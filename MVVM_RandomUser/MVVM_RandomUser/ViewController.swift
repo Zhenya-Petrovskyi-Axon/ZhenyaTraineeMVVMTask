@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var UsersCollectionView: UICollectionView!
+    @IBOutlet weak var usersCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         
