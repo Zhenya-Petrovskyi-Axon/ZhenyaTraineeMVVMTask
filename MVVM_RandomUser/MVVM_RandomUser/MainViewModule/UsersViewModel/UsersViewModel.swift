@@ -27,7 +27,18 @@ class UsersViewModel {
         apiManager.getUsers { [weak self] userData in
             switch userData {
             case .success(let users):
-                self?.usersData = users
+                self?.usersData.append(contentsOf: users)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getMoreUsersData() {
+        apiManager.getUsers { [weak self] userData in
+            switch userData {
+            case .success(let users):
+                self?.usersData.append(contentsOf: users)
             case .failure(let error):
                 print(error.localizedDescription)
             }

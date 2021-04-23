@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.usersCollectionView.reloadData()
         }
-       
     }
     
     func registerNib() {
@@ -44,6 +43,13 @@ class ViewController: UIViewController {
     func setDelegates() {
         usersCollectionView.delegate = self
         usersCollectionView.dataSource = self
+    }
+    
+    func updateNextSet(){
+        usersViewModel.getUsersData()
+        updateDataSource()
+           print("On Completetion")
+           //requests another set of data (20 more items) from the server.
     }
 
 
@@ -60,11 +66,11 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
         let item = usersViewModel.usersData[indexPath.row]
         
         cell.userName.text = item.fullname
-        print(item.fullname)
         
         if let url = URL(string: "\(item.picture.large)") {
             cell.userImage.kf.setImage(with: url)
@@ -73,4 +79,9 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            if indexPath.row == usersViewModel.usersData.count - 1 {  //numberofitem count
+                updateNextSet()
+            }
+    }
 }

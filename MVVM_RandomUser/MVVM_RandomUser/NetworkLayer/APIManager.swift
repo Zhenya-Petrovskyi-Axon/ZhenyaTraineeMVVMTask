@@ -32,20 +32,21 @@ class APIManager: APIManagerProtocol {
     func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
         let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(currentPage)"
+        print(fullUrl)
         
         guard let url = URL(string: fullUrl) else {
             completion(.failure(.urlIsNotValid))
             return
         }
         
-        session.dataTask(with: url) { data, reponse, error in
+        session.dataTask(with: url) { data, response, error in
             
             if error != nil {
                 completion(.failure(.noDataToRecieve))
                 return
             }
             
-            guard let response = reponse as? HTTPURLResponse else {
+            guard let response = response as? HTTPURLResponse else {
                 completion(.failure(.wrongResponse))
                 return
             }
@@ -60,6 +61,7 @@ class APIManager: APIManagerProtocol {
                     let users = try self.decoder.decode(Users.self, from: data)
                     completion(.success(users.results))
                     self.currentPage += 1
+                    print(self.currentPage)
                 } catch  {
                     completion(.failure(.unableToDecode))
                 }
