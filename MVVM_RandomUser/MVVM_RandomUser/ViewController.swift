@@ -64,6 +64,7 @@ extension ViewController: UICollectionViewDataSource {
         let item = usersViewModel.usersData[indexPath.row]
         
         cell.userName.text = item.fullname
+        print(item.fullname)
         
         if let url = URL(string: "\(item.picture.large)") {
             cell.userImage.kf.setImage(with: url)
@@ -75,9 +76,8 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 //extension ViewController: UICollectionViewDelegateFlowLayout {
-//    
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            return CGSize(width: UIScreen.main.bounds.width / 2.0, height: UIScreen.main.bounds.width / 2.0)
+//        return CGSize(width: UIScreen.main.bounds.width / 2.5, height: UIScreen.main.bounds.width / 2.5)
 //        }
-//    
+//
 //}
