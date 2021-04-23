@@ -16,10 +16,10 @@ enum NetworkError: Error {
 }
 
 protocol APIManagerProtocol: class {
-    func getUsers(pagination: Bool, completion: @escaping (Result<[User], NetworkError>) -> Void)
+    func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void)
 }
 
-class APIManager: NSObject, APIManagerProtocol {
+class APIManager: APIManagerProtocol {
     
     private let baseUrl = "https://randomuser.me/api/?seed=abc&results="
     private let resultsForPage = "&page="
@@ -29,7 +29,7 @@ class APIManager: NSObject, APIManagerProtocol {
     private let session = URLSession.shared
     private let decoder = JSONDecoder()
     
-    func getUsers(pagination: Bool = false, completion: @escaping (Result<[User], NetworkError>) -> Void) {
+    func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
         let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(currentPage)"
         

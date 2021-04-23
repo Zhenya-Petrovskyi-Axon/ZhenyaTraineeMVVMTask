@@ -6,17 +6,69 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
+    private let usersViewModel = UsersViewModel()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        setDelegates()
+        registerNib()
+        setupBindings()
+        
+    }
+    
+    func setupBindings() {
+        self.usersViewModel.didLoadUsers = { [weak self] in
+            self?.updateDataSource()
+        }
+    }
+    
+    func updateDataSource() {
+        DispatchQueue.main.async { [weak self] in
+            self?.usersCollectionView.reloadData()
+        }
+       
+    }
+    
+    func registerNib() {
+        self.usersCollectionView.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserCollectionViewCell")
+    }
+    
+    func setDelegates() {
+        usersCollectionView.delegate = self
+        usersCollectionView.dataSource = self
     }
 
 
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return usersViewModel.usersData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
+        
+        let item = usersViewModel.usersData[indexPath.row]
+        
+        cell.userName.text = item.fullname
+        
+        let url = URL(string: "\(item.picture.large)")
+        cell.userImage.kf.setImage(with: url)
+        
+        return cell
+    }
 }
 

@@ -7,19 +7,18 @@
 
 import Foundation
 
-class UsersViewModel: NSObject {
+class UsersViewModel {
     
     private var apiManager: APIManager!
-    private(set) var usersData: [User]! {
+    private(set) var usersData: [User] = [] {
         didSet {
-            self.bindUsersVMToController()
+            self.didLoadUsers()
         }
     }
     
-    var bindUsersVMToController : (() -> ()) = {}
-
-    override init() {
-        super.init()
+    var didLoadUsers : (() -> ()) = {}
+    
+    init() {
         self.apiManager = APIManager()
         getUsersData()
     }
