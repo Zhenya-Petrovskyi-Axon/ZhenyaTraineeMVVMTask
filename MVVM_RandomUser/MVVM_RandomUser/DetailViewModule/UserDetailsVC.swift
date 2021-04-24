@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class UserDetailsVC: ViewController {
+class UserDetailsVC: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -20,7 +21,34 @@ class UserDetailsVC: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupView()
+        
+    }
+    
+    func setupView() {
+        
+        guard let user = user else { return }
+        
+        userNameLabel.text = user.fullname
+        userGenderLabel.text = "\(String(describing: user.gender))"
+        userDobLabel.text = "\(String(describing: user.dob))"
+        userNationalityLabel.text = user.nat
+        cellPhoneLabel.text = user.cell
+        
+        if user.picture.large != "" {
+            let url = URL(string: "\(user.picture.large )")
+            DispatchQueue.main.async {
+                self.userImage.kf.setImage(with: url)
+            }
+        }
+        
+        setupUserImageView()
+    }
+    
+    func setupUserImageView() {
+        userImage.layer.masksToBounds = true
+        userImage.layer.cornerRadius = (userImage.frame.height / 2)
     }
    
 }
