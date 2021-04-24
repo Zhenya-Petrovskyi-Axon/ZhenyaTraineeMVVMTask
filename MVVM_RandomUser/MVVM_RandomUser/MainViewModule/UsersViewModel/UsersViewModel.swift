@@ -8,6 +8,7 @@
 import Foundation
 import Kingfisher
 
+// MARK: - Model to handle with main ViewController
 class UsersViewModel {
     
     private var apiManager: APIManager!
@@ -24,6 +25,7 @@ class UsersViewModel {
         getUsersData()
     }
     
+    // MARK: - Get users
     func getUsersData() {
         apiManager.getUsers { [weak self] userData in
             switch userData {
@@ -35,6 +37,7 @@ class UsersViewModel {
         }
     }
     
+    // MARK: - Setup displayable cell
     func setUpCell(_ cell: UserCollectionViewCell, indexPath: IndexPath) {
         
         DispatchQueue.main.async {

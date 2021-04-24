@@ -24,31 +24,37 @@ class ViewController: UIViewController {
         
     }
     
+    // MARK: - Call usersViewModel to bind data
     func setupBindings() {
         self.usersViewModel.didLoadUsers = { [weak self] in
             self?.updateDataSource()
         }
     }
     
+    // MARK: - Update Data
     func updateDataSource() {
         DispatchQueue.main.async { [weak self] in
             self?.usersCollectionView.reloadData()
         }
     }
     
+    // MARK: - Show User Cell
     func registerNib() {
         self.usersCollectionView.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "UserCollectionViewCell")
     }
     
+    // MARK: - Set up delegates
     func setDelegates() {
         usersCollectionView.delegate = self
         usersCollectionView.dataSource = self
     }
     
+    // MARK: - Used to get more users on scroll
     func getMoreUsers() {
         usersViewModel.getUsersData()
     }
     
+    // MARK: - Send chosed user data to DetailVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToDetailVC" {
             
@@ -65,6 +71,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     
+    // MARK: - When scrolled to the bottom - get more users
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if indexPath.row == usersViewModel.usersData.count - 3 {
@@ -89,6 +96,7 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
+    // MARK: - Call Segue to DetailVC with tap on desired cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "goToDetailVC", sender: indexPath)
     }

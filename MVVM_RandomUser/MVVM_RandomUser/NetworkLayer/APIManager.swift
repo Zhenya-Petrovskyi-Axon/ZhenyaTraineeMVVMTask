@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Session Errors
 enum NetworkError: Error {
     case urlIsNotValid
     case noDataToRecieve
@@ -15,10 +16,12 @@ enum NetworkError: Error {
     case responseIsNotValid(Int)
 }
 
+// MARK: - Protocols
 protocol APIManagerProtocol: class {
     func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void)
 }
 
+// MARK: - Network Data Manager
 class APIManager: APIManagerProtocol {
     
     private let baseUrl = "https://randomuser.me/api/?seed=abc&results="
@@ -29,6 +32,7 @@ class APIManager: APIManagerProtocol {
     private let session = URLSession.shared
     private let decoder = JSONDecoder()
     
+    // MARK: - Main function to get users
     func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
         let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(currentPage)"
