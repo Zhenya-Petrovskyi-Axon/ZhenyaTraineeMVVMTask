@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,40 +25,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ucf-GY-rDe">
-                                        <rect key="frame" x="10" y="10" width="190" height="220"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yei-X9-fNJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="220"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aOj-LD-Zkh">
-                                        <rect key="frame" x="214" y="10" width="190" height="220"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3U8-XY-vdB">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="220"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JDw-kj-Znb">
-                                        <rect key="frame" x="10" y="240" width="190" height="220"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7w7-iF-mjL">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="220"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DcV-Q9-SUb">
-                                        <rect key="frame" x="214" y="240" width="190" height="220"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Udv-NH-1hC">
-                                            <rect key="frame" x="0.0" y="0.0" width="190" height="220"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -90,13 +56,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DmD-df-CVq">
-                                <rect key="frame" x="15" y="103" width="384" height="384"/>
+                                <rect key="frame" x="30" y="118" width="354" height="354"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DmD-df-CVq" secondAttribute="height" multiplier="1:1" id="6zC-ko-NSm"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-h6-YBc">
-                                <rect key="frame" x="15" y="507" width="384" height="205.5"/>
+                                <rect key="frame" x="15" y="492" width="384" height="205.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejc-tn-Szh">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -135,10 +101,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jxs-h6-YBc" firstAttribute="top" secondItem="DmD-df-CVq" secondAttribute="bottom" constant="20" id="0qv-5C-75N"/>
-                            <constraint firstItem="DmD-df-CVq" firstAttribute="top" secondItem="tlS-cF-lfh" secondAttribute="top" constant="15" id="CSe-QR-uhN"/>
+                            <constraint firstItem="DmD-df-CVq" firstAttribute="top" secondItem="tlS-cF-lfh" secondAttribute="top" constant="30" id="CSe-QR-uhN"/>
                             <constraint firstItem="jxs-h6-YBc" firstAttribute="leading" secondItem="tlS-cF-lfh" secondAttribute="leading" constant="15" id="KBV-aN-6DU"/>
-                            <constraint firstItem="DmD-df-CVq" firstAttribute="leading" secondItem="tlS-cF-lfh" secondAttribute="leading" constant="15" id="L4T-wJ-erL"/>
-                            <constraint firstItem="tlS-cF-lfh" firstAttribute="trailing" secondItem="DmD-df-CVq" secondAttribute="trailing" constant="15" id="aJQ-VE-Q7f"/>
+                            <constraint firstItem="DmD-df-CVq" firstAttribute="leading" secondItem="tlS-cF-lfh" secondAttribute="leading" constant="30" id="L4T-wJ-erL"/>
+                            <constraint firstItem="tlS-cF-lfh" firstAttribute="trailing" secondItem="DmD-df-CVq" secondAttribute="trailing" constant="30" id="aJQ-VE-Q7f"/>
                             <constraint firstItem="tlS-cF-lfh" firstAttribute="trailing" secondItem="jxs-h6-YBc" secondAttribute="trailing" constant="15" id="orY-r3-ej0"/>
                         </constraints>
                     </view>
