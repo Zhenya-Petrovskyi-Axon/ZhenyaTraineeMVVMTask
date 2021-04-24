@@ -16,7 +16,7 @@ class UserDetailsVC: ViewController {
     @IBOutlet weak var userNationalityLabel: UILabel!
     @IBOutlet weak var cellPhoneLabel: UILabel!
     
-    var user: [User] = []
+    var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()

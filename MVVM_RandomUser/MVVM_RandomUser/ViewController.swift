@@ -55,7 +55,7 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if indexPath.row == usersViewModel.usersData.count - 4 {
+        if indexPath.row == usersViewModel.usersData.count - 3 {
             print("Bottom reached - user need's more data")
             getMoreUsers()
         }
