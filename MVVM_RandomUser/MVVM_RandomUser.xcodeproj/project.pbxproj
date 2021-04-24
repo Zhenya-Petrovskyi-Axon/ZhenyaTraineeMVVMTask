@@ -20,6 +20,7 @@
 		4544A963263178940015AE5D /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544A962263178940015AE5D /* UsersViewModel.swift */; };
 		45C8B1EF2631BB7D00819A18 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B1ED2631BB7D00819A18 /* UserCollectionViewCell.swift */; };
 		45C8B1F02631BB7D00819A18 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C8B1EE2631BB7D00819A18 /* UserCollectionViewCell.xib */; };
+		45C8B2022634A85300819A18 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B2012634A85300819A18 /* UserDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4544A962263178940015AE5D /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		45C8B1ED2631BB7D00819A18 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		45C8B1EE2631BB7D00819A18 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
+		45C8B2012634A85300819A18 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
 		461AFB20DD017B0A7C96BD87 /* Pods-MVVM_RandomUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RandomUser.release.xcconfig"; path = "Target Support Files/Pods-MVVM_RandomUser/Pods-MVVM_RandomUser.release.xcconfig"; sourceTree = "<group>"; };
 		98731A1F6035154C0E6047DC /* Pods-MVVM_RandomUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RandomUser.debug.xcconfig"; path = "Target Support Files/Pods-MVVM_RandomUser/Pods-MVVM_RandomUser.debug.xcconfig"; sourceTree = "<group>"; };
 		A9AF7E91DDDC52994DAB1D04 /* Pods_MVVM_RandomUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM_RandomUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 		45C8B1FD2634A60500819A18 /* DetailViewModule */ = {
 			isa = PBXGroup;
 			children = (
+				45C8B2012634A85300819A18 /* UserDetailsVC.swift */,
 			);
 			path = DetailViewModule;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */,
 				4544A95F263178230015AE5D /* UserEndPoint.swift in Sources */,
 				45C8B1EF2631BB7D00819A18 /* UserCollectionViewCell.swift in Sources */,
+				45C8B2022634A85300819A18 /* UserDetailsVC.swift in Sources */,
 				4505BFBC2630680C0038ADF3 /* User.swift in Sources */,
 				4505BFA4263062DA0038ADF3 /* SceneDelegate.swift in Sources */,
 			);
