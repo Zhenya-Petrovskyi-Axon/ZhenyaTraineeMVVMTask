@@ -14,7 +14,7 @@ class UserDetailsVC: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userGenderLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
-    @IBOutlet weak var userNationalityLabel: UILabel!
+    @IBOutlet weak var userLocationLabel: UILabel!
     @IBOutlet weak var cellPhoneLabel: UILabel!
     
     var user: User?
@@ -26,6 +26,7 @@ class UserDetailsVC: UIViewController {
         
     }
     
+    // MARK: - Setup User info
     func setupView() {
         
         guard let user = user else { return }
@@ -33,23 +34,31 @@ class UserDetailsVC: UIViewController {
         userNameLabel.text = "My name: \(user.fullname)"
         userGenderLabel.text = "Gender: \(user.gender.rawValue)"
         userDobLabel.text = "Woth born: \(formatDate(date: user.dob.date))"
-        userNationalityLabel.text = user.nat
+        userLocationLabel.text = "From: \(user.location.country)"
         cellPhoneLabel.text = "Phone number: \(user.cell) "
         
-        DispatchQueue.main.async {
-            let url = URL(string: "\(user.picture.large )")
-            self.userImage.kf.setImage(with: url)
-        }
+        roundImageView()
         
-        setupUserImageView()
+        setUserImage()
     }
     
-    func setupUserImageView() {
+    // MARK: - Used to get & set image from url
+    func setUserImage() {
+        if user?.picture.large != "" {
+            
+        let url = URL(string: "\(user?.picture.large ?? "")")
+        self.userImage.kf.setImage(with: url)
+            
+        }
+    }
+    
+    // MARK: - Used to set up image to be round
+    func roundImageView() {
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = (userImage.frame.height / 2)
     }
     
-    // MARK - Used to formate DOB
+    // MARK: - Used to formate DOB
     func formatDate(date: String) -> String {
         
         let dateFormatterGet = DateFormatter()

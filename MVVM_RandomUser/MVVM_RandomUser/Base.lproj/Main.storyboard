@@ -114,8 +114,8 @@
                         <outlet property="userDobLabel" destination="C8D-T6-8Nd" id="FUA-8W-0Qz"/>
                         <outlet property="userGenderLabel" destination="4gi-YV-mUr" id="KK4-RU-K42"/>
                         <outlet property="userImage" destination="DmD-df-CVq" id="DtX-sh-r9R"/>
+                        <outlet property="userLocationLabel" destination="pGV-fw-gLC" id="PbX-47-GQN"/>
                         <outlet property="userNameLabel" destination="Ejc-tn-Szh" id="uFK-JU-hnr"/>
-                        <outlet property="userNationalityLabel" destination="pGV-fw-gLC" id="PbX-47-GQN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9CR-iN-RBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
