@@ -47,9 +47,7 @@ class ViewController: UIViewController {
     
     func updateNextSet(){
         usersViewModel.getUsersData()
-        updateDataSource()
-           print("On Completetion")
-           //requests another set of data (20 more items) from the server.
+        self.updateDataSource()
     }
 
 
