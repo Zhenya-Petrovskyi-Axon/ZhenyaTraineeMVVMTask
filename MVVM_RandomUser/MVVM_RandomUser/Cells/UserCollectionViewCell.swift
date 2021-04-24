@@ -17,5 +17,9 @@ class UserCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func setUpCell(cell: UICollectionViewCell, indexPath: IndexPath) {
+        
+    }
 
 }

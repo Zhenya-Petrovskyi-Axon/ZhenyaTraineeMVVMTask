@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
     private let usersViewModel = UsersViewModel()
@@ -45,16 +45,21 @@ class ViewController: UIViewController {
         usersCollectionView.dataSource = self
     }
     
-    func updateNextSet(){
+    func getMoreUsers() {
         usersViewModel.getUsersData()
-        self.updateDataSource()
     }
-
-
+    
 }
 
 extension ViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == usersViewModel.usersData.count - 4 {
+            print("Bottom reached - user need's more data")
+            getMoreUsers()
+        }
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -66,20 +71,9 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
-        let item = usersViewModel.usersData[indexPath.row]
         
-        cell.userName.text = item.fullname
-        
-        if let url = URL(string: "\(item.picture.large)") {
-            cell.userImage.kf.setImage(with: url)
-        }
+        usersViewModel.setUpCell(cell, indexPath: indexPath)
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-            if indexPath.row == usersViewModel.usersData.count - 1 {  //numberofitem count
-                updateNextSet()
-            }
     }
 }
