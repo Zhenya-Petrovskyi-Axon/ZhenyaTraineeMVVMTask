@@ -35,7 +35,7 @@ class UsersViewModel {
         apiManager.getUsers { [weak self] userData in
             switch userData {
             case .success(let users):
-                if (self!.itemsCount + self!.apiManager.resultsPerPage) > ((self?.apiManager.maxUsersCount)!) {
+                if (self!.itemsCount + Int(self!.apiManager.resultsPerPage)) > Int((self?.apiManager.maxUsersCount)!) {
                     return
                 }
                 self?.usersData.append(contentsOf: users)

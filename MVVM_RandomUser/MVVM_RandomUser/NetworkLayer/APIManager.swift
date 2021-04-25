@@ -26,12 +26,13 @@ class APIManager: APIManagerProtocol {
     
     private let baseUrl = "https://randomuser.me/api/?seed=abc&results="
     private let resultsForPage = "&page="
-    public var resultsPerPage: Int {
-        return 20
+    
+    public var resultsPerPage: Double {
+        return 20.00
     }
     
-    public var maxUsersCount: Int {
-       return 5000
+    public var maxUsersCount: Double {
+        return 5000.00
     }
     
     private let session = URLSession.shared
@@ -40,7 +41,7 @@ class APIManager: APIManagerProtocol {
     // MARK: - Main function to get users
     func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
-        let page = Int.random(in: 1...(maxUsersCount / resultsPerPage))
+        let page = Int.random(in: 1...Int((maxUsersCount / resultsPerPage)))
         
         let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(page)"
         
