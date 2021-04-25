@@ -62,7 +62,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-h6-YBc">
-                                <rect key="frame" x="15" y="492" width="384" height="205.5"/>
+                                <rect key="frame" x="15" y="492" width="384" height="218"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejc-tn-Szh">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="27.5"/>
@@ -88,12 +88,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-Uf-iqb">
-                                        <rect key="frame" x="0.0" y="178" width="384" height="27.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1X9-qq-AY6">
+                                        <rect key="frame" x="0.0" y="178" width="384" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="callButtonAction:" destination="znc-9a-ckc" eventType="touchUpInside" id="vfW-8E-3vC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -110,12 +112,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="jO0-qm-sMX"/>
                     <connections>
-                        <outlet property="cellPhoneLabel" destination="FBO-Uf-iqb" id="YGa-jU-rOv"/>
                         <outlet property="userDobLabel" destination="C8D-T6-8Nd" id="FUA-8W-0Qz"/>
                         <outlet property="userGenderLabel" destination="4gi-YV-mUr" id="KK4-RU-K42"/>
                         <outlet property="userImage" destination="DmD-df-CVq" id="DtX-sh-r9R"/>
                         <outlet property="userLocationLabel" destination="pGV-fw-gLC" id="PbX-47-GQN"/>
                         <outlet property="userNameLabel" destination="Ejc-tn-Szh" id="uFK-JU-hnr"/>
+                        <outlet property="usersPhoneButtonText" destination="1X9-qq-AY6" id="qqJ-mE-WQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9CR-iN-RBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
