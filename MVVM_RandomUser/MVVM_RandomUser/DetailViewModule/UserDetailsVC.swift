@@ -15,9 +15,10 @@ class UserDetailsVC: UIViewController {
     @IBOutlet weak var userGenderLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
-    @IBOutlet weak var cellPhoneLabel: UILabel!
+    @IBOutlet weak var usersPhoneButtonText: UIButton!
     
     var user: User?
+    private var userPhoneNumberToCall = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,10 @@ class UserDetailsVC: UIViewController {
         userGenderLabel.text = "Gender: \(user.gender.rawValue)"
         userDobLabel.text = "Woth born: \(formatDate(date: user.dob.date))"
         userLocationLabel.text = "From: \(user.location.country)"
-        cellPhoneLabel.text = "Phone number: \(user.cell) "
+        
+        /// Set Button text
+        usersPhoneButtonText.setTitle("Phone number: \(user.cell)", for: .normal)
+        userPhoneNumberToCall = user.cell
         
         roundImageView()
         
@@ -72,6 +76,25 @@ class UserDetailsVC: UIViewController {
         
         return dateFormatter.string(from: dateObj!)
         
+    }
+    
+    // MARK: - Make a call using users phone number
+    @IBAction func callButtonAction(_ sender: UIButton) {
+        if let phoneCallURL = URL(string: "tel://\(userPhoneNumberToCall)") {
+            print("Calling \(userPhoneNumberToCall)")
+               let application = UIApplication.shared
+               if (application.canOpenURL(phoneCallURL)) {
+                let alert = UIAlertController(title: "", message: "Do you want to call to \n\(self.userPhoneNumberToCall)?", preferredStyle: .alert)
+                 let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+//                   application.open(phoneCallURL, options: [:], completionHandler: nil)
+                 })
+                 let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
+                 })
+                 alert.addAction(yesPressed)
+                 alert.addAction(noPressed)
+                 present(alert, animated: true, completion: nil)
+               }
+             }
     }
     
 }
