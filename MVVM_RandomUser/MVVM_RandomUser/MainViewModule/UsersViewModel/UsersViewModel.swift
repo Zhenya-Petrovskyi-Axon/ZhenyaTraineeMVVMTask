@@ -18,7 +18,7 @@ class UsersViewModel {
         }
     }
     
-    private var itemsCount: Int {
+    private var usersArrayitemsCount: Int {
         return usersData.count
     }
     
@@ -32,12 +32,15 @@ class UsersViewModel {
     // MARK: - Get users
     func getUsersData() {
         
+        // MARK: Check to not overfill usersData
+        if (usersArrayitemsCount + Int(apiManager.resultsPerPage)) > Int((apiManager.maxUsersCount)) {
+            return
+        }
+        
+        // MARK: Make a call to get users
         apiManager.getUsers { [weak self] userData in
             switch userData {
             case .success(let users):
-                if (self!.itemsCount + Int(self!.apiManager.resultsPerPage)) > Int((self?.apiManager.maxUsersCount)!) {
-                    return
-                }
                 self?.usersData.append(contentsOf: users)
             case .failure(let error):
                 print(error.localizedDescription)

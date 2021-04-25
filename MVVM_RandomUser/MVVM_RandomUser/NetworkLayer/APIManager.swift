@@ -41,7 +41,9 @@ class APIManager: APIManagerProtocol {
     // MARK: - Main function to get users
     func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
+        // Page for url to make a request
         let page = Int.random(in: 1...Int((maxUsersCount / resultsPerPage)))
+        print("Page for downloading a set of users is \(page)")
         
         let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(page)"
         
