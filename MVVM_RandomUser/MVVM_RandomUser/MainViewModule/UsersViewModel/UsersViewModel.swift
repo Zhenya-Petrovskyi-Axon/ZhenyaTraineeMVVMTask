@@ -32,7 +32,7 @@ class UsersViewModel {
     // MARK: - Get users
     func getUsersData() {
         
-        // MARK: Check to not overFetch usersData form server
+        // MARK: Used for overFetching check of max in total usersData from server
         if (usersArrayitemsCount + Int(apiManager.resultsPerPage)) > Int((apiManager.maxUsersCount)) {
             return
         }
