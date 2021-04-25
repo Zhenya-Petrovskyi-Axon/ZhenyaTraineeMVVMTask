@@ -15,6 +15,7 @@ class UserDetailsVC: UIViewController {
     @IBOutlet weak var userGenderLabel: UILabel!
     @IBOutlet weak var userDobLabel: UILabel!
     @IBOutlet weak var userLocationLabel: UILabel!
+    @IBOutlet weak var telDescriptionLabel: UILabel!
     @IBOutlet weak var usersPhoneButtonText: UIButton!
     
     var user: User?
@@ -37,9 +38,11 @@ class UserDetailsVC: UIViewController {
         userDobLabel.text = "Woth born: \(formatDate(date: user.dob.date))"
         userLocationLabel.text = "From: \(user.location.country)"
         
-        /// Set Button text
-        usersPhoneButtonText.setTitle("Phone number: \(user.cell)", for: .normal)
+        /// Set Button text with users phone number
+        usersPhoneButtonText.setTitle("\(user.cell)", for: .normal)
         userPhoneNumberToCall = user.cell
+        
+        telDescriptionLabel.text = "Phone number:"
         
         roundImageView()
         
@@ -81,15 +84,16 @@ class UserDetailsVC: UIViewController {
     // MARK: - Make a call using users phone number
     @IBAction func callButtonAction(_ sender: UIButton) {
         if let phoneCallURL = URL(string: "tel://\(userPhoneNumberToCall)") {
-            print("Calling \(userPhoneNumberToCall)")
+            print("User tap to call \(user!.fullname)")
                let application = UIApplication.shared
                if (application.canOpenURL(phoneCallURL)) {
-                let alert = UIAlertController(title: "", message: "Do you want to call to \n\(self.userPhoneNumberToCall)?", preferredStyle: .alert)
+                let alert = UIAlertController(title: "", message: "Call to \n\(String(describing: self.user!.fullname))?", preferredStyle: .alert)
                  let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
                    application.open(phoneCallURL, options: [:], completionHandler: nil)
                     print("App will call on real device")
                  })
                  let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
+                    print("User decided not to call")
                  })
                  alert.addAction(yesPressed)
                  alert.addAction(noPressed)

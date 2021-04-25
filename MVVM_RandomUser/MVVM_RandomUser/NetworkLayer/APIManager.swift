@@ -27,7 +27,9 @@ class APIManager: APIManagerProtocol {
     private let baseUrl = "https://randomuser.me/api/?seed=abc&results="
     private let resultsForPage = "&page="
     private let resultsPerPage = 20
-    private var currentPage = 1
+    public var maxUsersCount: Int {
+       return 5000
+    }
     
     private let session = URLSession.shared
     private let decoder = JSONDecoder()
@@ -35,7 +37,9 @@ class APIManager: APIManagerProtocol {
     // MARK: - Main function to get users
     func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
-        let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(currentPage)"
+        let page = Int.random(in: 1...(maxUsersCount / resultsPerPage))
+        
+        let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(page)"
         
         guard let url = URL(string: fullUrl) else {
             completion(.failure(.urlIsNotValid))
@@ -65,7 +69,6 @@ class APIManager: APIManagerProtocol {
                 do {
                     let users = try self.decoder.decode(Users.self, from: data)
                     completion(.success(users.results))
-                    self.currentPage += 1
                 } catch  {
                     completion(.failure(.unableToDecode))
                 }

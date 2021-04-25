@@ -18,6 +18,10 @@ class UsersViewModel {
         }
     }
     
+    private var itemsCount: Int {
+        return usersData.count
+    }
+    
     var didLoadUsers : (() -> ()) = {}
     
     init() {
@@ -27,9 +31,13 @@ class UsersViewModel {
     
     // MARK: - Get users
     func getUsersData() {
+        
         apiManager.getUsers { [weak self] userData in
             switch userData {
             case .success(let users):
+                if (self!.itemsCount + users.count) > (self!.apiManager.maxUsersCount) {
+                    return
+                }
                 self?.usersData.append(contentsOf: users)
             case .failure(let error):
                 print(error.localizedDescription)
