@@ -86,7 +86,8 @@ class UserDetailsVC: UIViewController {
                if (application.canOpenURL(phoneCallURL)) {
                 let alert = UIAlertController(title: "", message: "Do you want to call to \n\(self.userPhoneNumberToCall)?", preferredStyle: .alert)
                  let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-//                   application.open(phoneCallURL, options: [:], completionHandler: nil)
+                   application.open(phoneCallURL, options: [:], completionHandler: nil)
+                    print("App will call on real device")
                  })
                  let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
                  })
