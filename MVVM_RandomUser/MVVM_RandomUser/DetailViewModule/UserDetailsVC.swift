@@ -38,7 +38,7 @@ class UserDetailsVC: UIViewController {
         userDobLabel.text = "Woth born: \(formatDate(date: user.dob.date))"
         userLocationLabel.text = "From: \(user.location.country)"
         
-        /// Set Button text with users phone number
+        // Set Button text with users phone number
         usersPhoneButtonText.setTitle("\(user.cell)", for: .normal)
         userPhoneNumberToCall = user.cell
         

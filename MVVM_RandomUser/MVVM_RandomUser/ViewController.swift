@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: - Update Data
+    // MARK: - Update Data Source
     func updateDataSource() {
         DispatchQueue.main.async { [weak self] in
             self?.usersCollectionView.reloadData()

@@ -60,7 +60,7 @@ class UsersViewModel {
             }
             
             cell.userImage.layer.masksToBounds = true
-            cell.userImage.layer.cornerRadius = (cell.userImage.frame.width / 2)
+            cell.userImage.layer.cornerRadius = (cell.userImage.frame.height / 2)
             
         }
     }
