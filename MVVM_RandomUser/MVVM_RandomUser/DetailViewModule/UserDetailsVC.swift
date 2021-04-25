@@ -19,6 +19,7 @@ class UserDetailsVC: UIViewController {
     @IBOutlet weak var usersPhoneButtonText: UIButton!
     
     var user: User?
+    
     private var userPhoneNumberToCall = ""
     
     override func viewDidLoad() {
@@ -40,6 +41,7 @@ class UserDetailsVC: UIViewController {
         
         // Set Button text with users phone number
         usersPhoneButtonText.setTitle("\(user.cell)", for: .normal)
+        // Set Users
         userPhoneNumberToCall = user.cell
         
         telDescriptionLabel.text = "Phone number:"
@@ -53,8 +55,8 @@ class UserDetailsVC: UIViewController {
     func setUserImage() {
         if user?.picture.large != "" {
             
-        let url = URL(string: "\(user?.picture.large ?? "")")
-        self.userImage.kf.setImage(with: url)
+            let url = URL(string: "\(user?.picture.large ?? "")")
+            self.userImage.kf.setImage(with: url)
             
         }
     }
@@ -85,21 +87,21 @@ class UserDetailsVC: UIViewController {
     @IBAction func callButtonAction(_ sender: UIButton) {
         if let phoneCallURL = URL(string: "tel://\(userPhoneNumberToCall)") {
             print("User tap to call \(user!.fullname)")
-               let application = UIApplication.shared
-               if (application.canOpenURL(phoneCallURL)) {
+            let application = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
                 let alert = UIAlertController(title: "", message: "Call to \n\(String(describing: self.user!.fullname))?", preferredStyle: .alert)
-                 let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-                   application.open(phoneCallURL, options: [:], completionHandler: nil)
+                let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
                     print("App will call on real device")
-                 })
-                 let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
+                })
+                let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
                     print("User decided not to call")
-                 })
-                 alert.addAction(yesPressed)
-                 alert.addAction(noPressed)
-                 present(alert, animated: true, completion: nil)
-               }
-             }
+                })
+                alert.addAction(yesPressed)
+                alert.addAction(noPressed)
+                present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
 }
