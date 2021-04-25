@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Randomizer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MVVM_RandomUser" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,9 @@
                             <constraint firstItem="CcP-tS-BJQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vem-nD-prd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QYV-Yv-QUE"/>
+                    <navigationItem key="navigationItem" title="Randomizer" id="QYV-Yv-QUE">
+                        <barButtonItem key="backBarButtonItem" title="  " id="Kpx-Va-aCP"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="usersCollectionView" destination="CcP-tS-BJQ" id="kG2-ML-Dxb"/>
                         <segue destination="znc-9a-ckc" kind="show" identifier="goToDetailVC" id="YId-kj-CzM"/>
@@ -47,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="12.723214285714285"/>
         </scene>
-        <!--User DetailsVC-->
+        <!--User Info-->
         <scene sceneID="YDo-VH-Xt9">
             <objects>
                 <viewController id="znc-9a-ckc" customClass="UserDetailsVC" customModule="MVVM_RandomUser" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +134,7 @@
                             <constraint firstItem="j2Y-II-BKZ" firstAttribute="leading" secondItem="tlS-cF-lfh" secondAttribute="leading" constant="15" id="zBN-t8-zvH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jO0-qm-sMX"/>
+                    <navigationItem key="navigationItem" title="User Info" id="jO0-qm-sMX"/>
                     <connections>
                         <outlet property="telDescriptionLabel" destination="pdV-bY-r7S" id="k2q-AF-8cF"/>
                         <outlet property="userDobLabel" destination="C8D-T6-8Nd" id="FUA-8W-0Qz"/>
