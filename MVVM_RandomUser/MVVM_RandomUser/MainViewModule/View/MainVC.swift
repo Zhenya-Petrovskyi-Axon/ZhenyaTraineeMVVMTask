@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainVC: UIViewController {
     
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
@@ -60,17 +60,18 @@ class MainViewController: UIViewController {
     
     // MARK: - Function to present DeatilVC
     func presentUserDetailVC(with data: User?) {
-        let detailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDetailsVC") as! UserDetailsVC
+        let detailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDetailsVC") as! DetailsVC
         
         detailsVC.modalPresentationStyle = .fullScreen
         detailsVC.user = data
+        
         present(detailsVC, animated: true)
         
         detailsVC.transitioningDelegate = self
     }
 }
 
-extension MainViewController: UICollectionViewDelegate {
+extension MainVC: UICollectionViewDelegate {
     
     // MARK: - When scrolled to the bottom - get more users
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -82,7 +83,7 @@ extension MainViewController: UICollectionViewDelegate {
     }
 }
 
-extension MainViewController: UICollectionViewDataSource {
+extension MainVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return usersViewModel.usersData.count

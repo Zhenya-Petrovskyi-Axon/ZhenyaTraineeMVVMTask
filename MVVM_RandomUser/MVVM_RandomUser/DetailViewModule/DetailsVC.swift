@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class UserDetailsVC: UIViewController {
+class DetailsVC: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!

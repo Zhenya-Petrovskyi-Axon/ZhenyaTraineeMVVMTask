@@ -10,7 +10,7 @@
 		1F643E7519AB75D01733361E /* Pods_MVVM_RandomUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AF7E91DDDC52994DAB1D04 /* Pods_MVVM_RandomUser.framework */; };
 		4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA1263062DA0038ADF3 /* AppDelegate.swift */; };
 		4505BFA4263062DA0038ADF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */; };
-		4505BFA6263062DA0038ADF3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA5263062DA0038ADF3 /* MainViewController.swift */; };
+		4505BFA6263062DA0038ADF3 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA5263062DA0038ADF3 /* MainVC.swift */; };
 		4505BFA9263062DA0038ADF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFA7263062DA0038ADF3 /* Main.storyboard */; };
 		4505BFAB263062DB0038ADF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFAA263062DB0038ADF3 /* Assets.xcassets */; };
 		4505BFAE263062DB0038ADF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFAC263062DB0038ADF3 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		4544A963263178940015AE5D /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544A962263178940015AE5D /* UsersViewModel.swift */; };
 		45C8B1EF2631BB7D00819A18 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B1ED2631BB7D00819A18 /* UserCollectionViewCell.swift */; };
 		45C8B1F02631BB7D00819A18 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C8B1EE2631BB7D00819A18 /* UserCollectionViewCell.xib */; };
-		45C8B2022634A85300819A18 /* UserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B2012634A85300819A18 /* UserDetailsVC.swift */; };
+		45C8B2022634A85300819A18 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C8B2012634A85300819A18 /* DetailsVC.swift */; };
 		45D2E90D2636F3B10072BDEF /* MainVCTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D2E90C2636F3B10072BDEF /* MainVCTransitioningDelegate.swift */; };
 		45D2E9132636F5C90072BDEF /* AnimatorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D2E9122636F5C90072BDEF /* AnimatorClass.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		4505BF9E263062DA0038ADF3 /* MVVM_RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4505BFA1263062DA0038ADF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4505BFA5263062DA0038ADF3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4505BFA5263062DA0038ADF3 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		4505BFA8263062DA0038ADF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4505BFAA263062DB0038ADF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4505BFAD263062DB0038ADF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		4544A962263178940015AE5D /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		45C8B1ED2631BB7D00819A18 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		45C8B1EE2631BB7D00819A18 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
-		45C8B2012634A85300819A18 /* UserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsVC.swift; sourceTree = "<group>"; };
+		45C8B2012634A85300819A18 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		45D2E90C2636F3B10072BDEF /* MainVCTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTransitioningDelegate.swift; sourceTree = "<group>"; };
 		45D2E9122636F5C90072BDEF /* AnimatorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorClass.swift; sourceTree = "<group>"; };
 		461AFB20DD017B0A7C96BD87 /* Pods-MVVM_RandomUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM_RandomUser.release.xcconfig"; path = "Target Support Files/Pods-MVVM_RandomUser/Pods-MVVM_RandomUser.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		45C8B1FD2634A60500819A18 /* DetailViewModule */ = {
 			isa = PBXGroup;
 			children = (
-				45C8B2012634A85300819A18 /* UserDetailsVC.swift */,
+				45C8B2012634A85300819A18 /* DetailsVC.swift */,
 			);
 			path = DetailViewModule;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				45D2E90C2636F3B10072BDEF /* MainVCTransitioningDelegate.swift */,
-				4505BFA5263062DA0038ADF3 /* MainViewController.swift */,
+				4505BFA5263062DA0038ADF3 /* MainVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,13 +299,13 @@
 			files = (
 				4505BFB8263065B80038ADF3 /* APIManager.swift in Sources */,
 				4544A963263178940015AE5D /* UsersViewModel.swift in Sources */,
-				4505BFA6263062DA0038ADF3 /* MainViewController.swift in Sources */,
+				4505BFA6263062DA0038ADF3 /* MainVC.swift in Sources */,
 				4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */,
 				45D2E90D2636F3B10072BDEF /* MainVCTransitioningDelegate.swift in Sources */,
 				4544A95F263178230015AE5D /* UserEndPoint.swift in Sources */,
 				45D2E9132636F5C90072BDEF /* AnimatorClass.swift in Sources */,
 				45C8B1EF2631BB7D00819A18 /* UserCollectionViewCell.swift in Sources */,
-				45C8B2022634A85300819A18 /* UserDetailsVC.swift in Sources */,
+				45C8B2022634A85300819A18 /* DetailsVC.swift in Sources */,
 				4505BFBC2630680C0038ADF3 /* User.swift in Sources */,
 				4505BFA4263062DA0038ADF3 /* SceneDelegate.swift in Sources */,
 			);

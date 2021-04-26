@@ -7,29 +7,30 @@
 
 import UIKit
 
-extension MainViewController: UIViewControllerTransitioningDelegate {
+extension MainVC: UIViewControllerTransitioningDelegate {
     
     // B1 - 2
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         // B2 - 16
-        guard let firstViewController = presenting as? MainViewController,
-              let secondViewController = presented as? UserDetailsVC,
+        guard let firstViewController = presenting as? MainVC,
+              let secondViewController = presented as? DetailsVC,
               let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         else { return nil }
         
-        animator = Animator(type: .present, firstViewController: firstViewController, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+        print(selectedCellImageViewSnapshot)
+        
+        animator = Animator(type: .present, fromVC: firstViewController, toVC: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
         return animator
     }
     
     // B1 - 3
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         // B2 - 17
-        guard let secondViewController = dismissed as? UserDetailsVC,
+        guard let secondViewController = dismissed as? DetailsVC,
               let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         else { return nil }
         
-        animator = Animator(type: .dismiss, firstViewController: self, secondViewController: secondViewController, selectedCellImageViewSnapshot: selectedCellImageViewSnapshot)
+        animator = Animator(type: .dismiss, fromVC: self, toVC: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
         return animator
     }
-    
 }

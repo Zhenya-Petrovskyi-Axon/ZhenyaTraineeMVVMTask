@@ -14,20 +14,20 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     static let duration: TimeInterval = 1.25
 
     private let type: PresentationType
-    private let firstViewController: MainViewController
-    private let secondViewController: UserDetailsVC
-    private let selectedCellImageViewSnapshot: UIView
+    private let mainViewController: MainVC
+    private let detailViewController: DetailsVC
+    private let userImageSnapshot: UIView
     private let cellImageViewRect: CGRect
 
     // B2 - 10
-    init?(type: PresentationType, firstViewController: MainViewController, secondViewController: UserDetailsVC, selectedCellImageViewSnapshot: UIView) {
+    init?(type: PresentationType, fromVC: MainVC, toVC: DetailsVC, userImageSnapshot: UIView) {
         self.type = type
-        self.firstViewController = firstViewController
-        self.secondViewController = secondViewController
-        self.selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
+        self.mainViewController = fromVC
+        self.detailViewController = toVC
+        self.userImageSnapshot = userImageSnapshot
 
-        guard let window = firstViewController.view.window ?? secondViewController.view.window,
-            let selectedCell = firstViewController.selectedCell
+        guard let window = fromVC.view.window ?? toVC.view.window,
+            let selectedCell = fromVC.selectedCell
             else { return nil }
 
         // B2 - 11
@@ -39,17 +39,17 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         return Self.duration
     }
 
-    // B2 - 13
-
+   
     // B2 - 13
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         // B2 - 18
         let containerView = transitionContext.containerView
 
         // B2 - 19
-        guard let toView = secondViewController.view
+        guard let toView = detailViewController.view
             else {
                 transitionContext.completeTransition(false)
+            print("Failed transition")
                 return
         }
 
