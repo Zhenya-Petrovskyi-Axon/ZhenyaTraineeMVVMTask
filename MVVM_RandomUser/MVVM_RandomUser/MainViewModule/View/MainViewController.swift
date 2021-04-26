@@ -11,6 +11,9 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
+    var selectedCell: UserCollectionViewCell?
+    var selectedCellImageViewSnapshot: UIView?
+    
     private let usersViewModel = UsersViewModel()
     
     override func viewDidLoad() {
@@ -94,6 +97,10 @@ extension MainViewController: UICollectionViewDataSource {
     
     // MARK: - Present DetailsVC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        selectedCell = collectionView.cellForItem(at: indexPath) as? UserCollectionViewCell
+        selectedCellImageViewSnapshot = selectedCell?.userImage.snapshotView(afterScreenUpdates: false)
+        
         presentUserDetailVC(with: usersViewModel.usersData[indexPath.row])
     }
     
