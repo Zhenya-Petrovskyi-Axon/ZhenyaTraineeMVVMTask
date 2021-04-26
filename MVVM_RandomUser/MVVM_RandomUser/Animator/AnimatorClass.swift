@@ -40,8 +40,23 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     }
 
     // B2 - 13
+
+    // B2 - 13
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        // steps 18-20 will be here later.
+        // B2 - 18
+        let containerView = transitionContext.containerView
+
+        // B2 - 19
+        guard let toView = secondViewController.view
+            else {
+                transitionContext.completeTransition(false)
+                return
+        }
+
+        containerView.addSubview(toView)
+
+        // B2 - 20
+        transitionContext.completeTransition(true)
     }
 }
 
