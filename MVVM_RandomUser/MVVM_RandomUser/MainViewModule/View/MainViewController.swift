@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var usersCollectionView: UICollectionView!
     
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDelegate {
     
     // MARK: - When scrolled to the bottom - get more users
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -75,7 +75,7 @@ extension ViewController: UICollectionViewDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return usersViewModel.usersData.count

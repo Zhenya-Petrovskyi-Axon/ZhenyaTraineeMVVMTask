@@ -10,7 +10,7 @@
 		1F643E7519AB75D01733361E /* Pods_MVVM_RandomUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AF7E91DDDC52994DAB1D04 /* Pods_MVVM_RandomUser.framework */; };
 		4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA1263062DA0038ADF3 /* AppDelegate.swift */; };
 		4505BFA4263062DA0038ADF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */; };
-		4505BFA6263062DA0038ADF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA5263062DA0038ADF3 /* ViewController.swift */; };
+		4505BFA6263062DA0038ADF3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4505BFA5263062DA0038ADF3 /* MainViewController.swift */; };
 		4505BFA9263062DA0038ADF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFA7263062DA0038ADF3 /* Main.storyboard */; };
 		4505BFAB263062DB0038ADF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFAA263062DB0038ADF3 /* Assets.xcassets */; };
 		4505BFAE263062DB0038ADF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4505BFAC263062DB0038ADF3 /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		4505BF9E263062DA0038ADF3 /* MVVM_RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4505BFA1263062DA0038ADF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4505BFA5263062DA0038ADF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4505BFA5263062DA0038ADF3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4505BFA8263062DA0038ADF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4505BFAA263062DB0038ADF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4505BFAD263062DB0038ADF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,7 +84,6 @@
 				45C8B1FD2634A60500819A18 /* DetailViewModule */,
 				4505BFA1263062DA0038ADF3 /* AppDelegate.swift */,
 				4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */,
-				4505BFA5263062DA0038ADF3 /* ViewController.swift */,
 				4505BFA7263062DA0038ADF3 /* Main.storyboard */,
 				4505BFAA263062DB0038ADF3 /* Assets.xcassets */,
 				4505BFAC263062DB0038ADF3 /* LaunchScreen.storyboard */,
@@ -131,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				4544A961263178770015AE5D /* UsersViewModel */,
+				45D2E90A2636F29D0072BDEF /* View */,
 			);
 			path = MainViewModule;
 			sourceTree = "<group>";
@@ -150,6 +150,14 @@
 				45C8B2012634A85300819A18 /* UserDetailsVC.swift */,
 			);
 			path = DetailViewModule;
+			sourceTree = "<group>";
+		};
+		45D2E90A2636F29D0072BDEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4505BFA5263062DA0038ADF3 /* MainViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		ACC9EF9C315CC9FAE71530CB /* Frameworks */ = {
@@ -277,7 +285,7 @@
 			files = (
 				4505BFB8263065B80038ADF3 /* APIManager.swift in Sources */,
 				4544A963263178940015AE5D /* UsersViewModel.swift in Sources */,
-				4505BFA6263062DA0038ADF3 /* ViewController.swift in Sources */,
+				4505BFA6263062DA0038ADF3 /* MainViewController.swift in Sources */,
 				4505BFA2263062DA0038ADF3 /* AppDelegate.swift in Sources */,
 				4544A95F263178230015AE5D /* UserEndPoint.swift in Sources */,
 				45C8B1EF2631BB7D00819A18 /* UserCollectionViewCell.swift in Sources */,
