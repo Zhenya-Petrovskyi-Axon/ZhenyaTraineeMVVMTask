@@ -66,6 +66,14 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Function to present DeatilVC
+    func presentUserDetailVC(with data: User?) {
+        let detailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDetailsVC") as! UserDetailsVC
+        
+        detailsVC.modalPresentationStyle = .fullScreen
+        detailsVC.user = data
+        present(detailsVC, animated: true)
+    }
 }
 
 extension ViewController: UICollectionViewDelegate {
@@ -95,9 +103,9 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
-    // MARK: - Call Segue to DetailVC with tap on desired cell
+    // MARK: - Present DetailsVC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "goToDetailVC", sender: indexPath)
+        presentUserDetailVC(with: usersViewModel.usersData[indexPath.row])
     }
     
     
