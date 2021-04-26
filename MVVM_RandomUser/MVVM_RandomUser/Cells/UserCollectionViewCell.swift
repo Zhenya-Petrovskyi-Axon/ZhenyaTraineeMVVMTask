@@ -18,8 +18,4 @@ class UserCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setUpCell(cell: UICollectionViewCell, indexPath: IndexPath) {
-        
-    }
-
 }
