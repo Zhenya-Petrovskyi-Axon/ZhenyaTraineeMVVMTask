@@ -60,6 +60,8 @@ class MainViewController: UIViewController {
         detailsVC.modalPresentationStyle = .fullScreen
         detailsVC.user = data
         present(detailsVC, animated: true)
+        
+        detailsVC.transitioningDelegate = self
     }
 }
 
