@@ -53,19 +53,6 @@ class ViewController: UIViewController {
         usersViewModel.getUsersData()
     }
     
-    // MARK: - Send chosed user data to DetailVC
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToDetailVC" {
-            
-            let vc =  segue.destination as? UserDetailsVC
-            guard let indexPath = sender as? IndexPath else { return }
-            
-            vc?.user = usersViewModel.usersData[indexPath.row]
-            print("User decided to get info of \(usersViewModel.usersData[indexPath.row].fullname)")
-            
-        }
-    }
-    
     // MARK: - Function to present DeatilVC
     func presentUserDetailVC(with data: User?) {
         let detailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDetailsVC") as! UserDetailsVC

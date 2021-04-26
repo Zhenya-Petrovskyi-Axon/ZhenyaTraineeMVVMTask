@@ -115,18 +115,27 @@
                                     <constraint firstAttribute="height" constant="256" id="vH3-q8-OMi"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYP-0s-alo">
+                                <rect key="frame" x="25" y="69" width="30" height="30"/>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="znc-9a-ckc" eventType="touchUpInside" id="Ps0-He-Jiw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tlS-cF-lfh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CYP-0s-alo" firstAttribute="top" secondItem="tlS-cF-lfh" secondAttribute="top" constant="25" id="3cc-2n-Ewu"/>
                             <constraint firstItem="jxs-h6-YBc" firstAttribute="top" secondItem="jP5-40-2jC" secondAttribute="bottom" constant="50" id="Ahq-E0-xx8"/>
                             <constraint firstItem="jP5-40-2jC" firstAttribute="top" secondItem="tlS-cF-lfh" secondAttribute="top" constant="25" id="RcU-L0-dxw"/>
                             <constraint firstItem="jxs-h6-YBc" firstAttribute="centerX" secondItem="zLj-Ra-COD" secondAttribute="centerX" id="VEy-MW-MN8"/>
+                            <constraint firstItem="CYP-0s-alo" firstAttribute="leading" secondItem="tlS-cF-lfh" secondAttribute="leading" constant="25" id="x1f-W6-LDu"/>
                             <constraint firstItem="jP5-40-2jC" firstAttribute="centerX" secondItem="zLj-Ra-COD" secondAttribute="centerX" id="ysU-Pe-xHZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="User Info" id="jO0-qm-sMX"/>
                     <connections>
+                        <outlet property="closeButtonAction" destination="CYP-0s-alo" id="2CE-o8-dU3"/>
                         <outlet property="telDescriptionLabel" destination="pdV-bY-r7S" id="k2q-AF-8cF"/>
                         <outlet property="userDobLabel" destination="C8D-T6-8Nd" id="FUA-8W-0Qz"/>
                         <outlet property="userGenderLabel" destination="4gi-YV-mUr" id="KK4-RU-K42"/>

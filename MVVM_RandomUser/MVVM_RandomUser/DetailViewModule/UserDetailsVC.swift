@@ -17,6 +17,7 @@ class UserDetailsVC: UIViewController {
     @IBOutlet weak var userLocationLabel: UILabel!
     @IBOutlet weak var telDescriptionLabel: UILabel!
     @IBOutlet weak var usersPhoneButtonText: UIButton!
+    @IBOutlet weak var closeButtonAction: UIButton!
     
     var user: User?
     
@@ -41,6 +42,7 @@ class UserDetailsVC: UIViewController {
         
         // Set Button text with users phone number
         usersPhoneButtonText.setTitle("\(user.cell)", for: .normal)
+        
         // Set Users
         userPhoneNumberToCall = user.cell
         
@@ -104,4 +106,8 @@ class UserDetailsVC: UIViewController {
         }
     }
     
+    // MARK: - Close detailVC action & go back to main
+    @IBAction func closeButtonAction(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
 }
