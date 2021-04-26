@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     
     private let usersViewModel = UsersViewModel()
     
+    var animator: Animator?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
