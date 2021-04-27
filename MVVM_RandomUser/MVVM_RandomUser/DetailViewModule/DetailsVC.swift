@@ -67,6 +67,8 @@ class DetailsVC: UIViewController {
     func roundImageView() {
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = (userImage.frame.height / 2)
+        userImage.layer.borderWidth = 3
+        userImage.layer.borderColor = UIColor.systemGray.cgColor
     }
     
     // MARK: - Used to formate DOB
@@ -87,8 +89,10 @@ class DetailsVC: UIViewController {
     
     // MARK: - Make a call using users phone number
     @IBAction func callButtonAction(_ sender: UIButton) {
+        
         if let phoneCallURL = URL(string: "tel://\(userPhoneNumberToCall)") {
             print("User tap to call \(user!.fullname)")
+            
             let application = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
                 let alert = UIAlertController(title: "", message: "Call to \n\(String(describing: self.user!.fullname))?", preferredStyle: .alert)
@@ -106,7 +110,7 @@ class DetailsVC: UIViewController {
         }
     }
     
-    // MARK: - Close detailVC action & go back to main
+    // MARK: - Action to close detailVC action & go back to main
     @IBAction func closeButtonAction(_ sender: UIButton) {
         dismiss(animated: true)
     }
