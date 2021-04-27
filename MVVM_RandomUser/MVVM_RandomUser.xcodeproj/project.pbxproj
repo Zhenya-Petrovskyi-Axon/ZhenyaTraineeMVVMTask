@@ -81,14 +81,13 @@
 		4505BFA0263062DA0038ADF3 /* MVVM_RandomUser */ = {
 			isa = PBXGroup;
 			children = (
-				45D2E9112636F5B00072BDEF /* Animator */,
-				45C8B1EC2631BB4700819A18 /* Cells */,
-				4505BFB62630658C0038ADF3 /* NetworkLayer */,
-				4544A95D263178000015AE5D /* Model */,
 				4544A9682631A05C0015AE5D /* MainViewModule */,
 				45C8B1FD2634A60500819A18 /* DetailViewModule */,
-				4505BFA1263062DA0038ADF3 /* AppDelegate.swift */,
-				4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */,
+				4505BFB62630658C0038ADF3 /* NetworkLayer */,
+				4544A95D263178000015AE5D /* Model */,
+				45C8B1EC2631BB4700819A18 /* Cells */,
+				45D2E9112636F5B00072BDEF /* Animator */,
+				4537542526385F030033714B /* MainAppDelegates */,
 				4505BFA7263062DA0038ADF3 /* Main.storyboard */,
 				4505BFAA263062DB0038ADF3 /* Assets.xcassets */,
 				4505BFAC263062DB0038ADF3 /* LaunchScreen.storyboard */,
@@ -113,6 +112,15 @@
 				461AFB20DD017B0A7C96BD87 /* Pods-MVVM_RandomUser.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4537542526385F030033714B /* MainAppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				4505BFA1263062DA0038ADF3 /* AppDelegate.swift */,
+				4505BFA3263062DA0038ADF3 /* SceneDelegate.swift */,
+			);
+			path = MainAppDelegates;
 			sourceTree = "<group>";
 		};
 		4544A95D263178000015AE5D /* Model */ = {
