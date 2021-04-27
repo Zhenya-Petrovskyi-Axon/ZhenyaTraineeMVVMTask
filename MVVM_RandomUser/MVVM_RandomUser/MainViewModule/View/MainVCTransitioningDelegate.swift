@@ -17,8 +17,6 @@ extension MainVC: UIViewControllerTransitioningDelegate {
               let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         else { return nil }
         
-        print(selectedCellImageViewSnapshot)
-        
         animator = Animator(type: .present, firstView: firstViewController, secondView: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
         return animator
     }
