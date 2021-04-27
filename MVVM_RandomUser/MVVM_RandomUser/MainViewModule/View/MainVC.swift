@@ -99,7 +99,7 @@ extension MainVC: UICollectionViewDataSource {
         return cell
     }
     
-    // MARK: - Present DetailsVC
+    // MARK: - Present DetailsVC and init property's for animation usage
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         selectedCell = collectionView.cellForItem(at: indexPath) as? UserCollectionViewCell

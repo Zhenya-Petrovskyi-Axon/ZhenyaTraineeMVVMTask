@@ -7,10 +7,9 @@
 
 import UIKit
 
-// B2 - 8
+// MARK: - Main animator class
 final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    // B2 - 9
     static let duration: TimeInterval = 1.25
     
     private let type: PresentationType
@@ -19,7 +18,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     private var selectedCellImageViewSnapshot: UIView
     private let cellImageViewRect: CGRect
     
-    // B2 - 10
+    // Custom initializer that assigns all declared properties
     init?(type: PresentationType, firstView: MainVC, secondView: DetailsVC, userImageSnapshot: UIView) {
         self.type = type
         self.mainViewController = firstView
@@ -30,17 +29,17 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
               let selectedCell = firstView.selectedCell
         else { return nil }
         
-        // B2 - 11
+        // Getting the Frame of the Image View of the Cell relative to the window’s frame
         self.cellImageViewRect = selectedCell.userCellImage.convert(selectedCell.userCellImage.bounds, to: window)
     }
     
-    // B2 - 12
+    // Return wanted animation duration required by UIViewControllerContextTransitioning protocol
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return Self.duration
     }
     
     
-    // B2 - 13
+    // MARK: - All of the transition logic and animations
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         // B2 - 18
         let containerView = transitionContext.containerView
@@ -135,7 +134,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     }
 }
 
-// B2 - 14
+// Used to pass to Animator to define which animation to use
 enum PresentationType {
     
     case present
