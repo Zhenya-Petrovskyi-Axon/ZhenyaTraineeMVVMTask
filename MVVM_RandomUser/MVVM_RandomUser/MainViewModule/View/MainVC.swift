@@ -28,7 +28,7 @@ class MainVC: UIViewController {
         
     }
     
-    // MARK: - Call usersViewModel to bind data
+    // MARK: - Call usersViewModel to bind data 
     func setupBindings() {
         self.usersViewModel.didLoadUsers = { [weak self] in
             self?.updateDataSource()
