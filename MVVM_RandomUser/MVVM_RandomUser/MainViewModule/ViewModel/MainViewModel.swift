@@ -9,7 +9,7 @@ import Foundation
 import Kingfisher
 
 // MARK: - Model to handle with main ViewController
-class UsersViewModel {
+class MainViewModel {
     
     private var apiManager: APIManager!
     private(set) var usersData: [User] = [] {

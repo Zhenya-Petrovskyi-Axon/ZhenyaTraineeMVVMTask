@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     var selectedCell: UserCollectionViewCell?
     var selectedCellImageViewSnapshot: UIView?
     
-    private let usersViewModel = UsersViewModel()
+    private let usersViewModel = MainViewModel()
     
     var animator: Animator?
     
