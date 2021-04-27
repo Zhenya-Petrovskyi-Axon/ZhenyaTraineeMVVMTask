@@ -49,7 +49,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         guard let toView = detailViewController.view
         else {
             transitionContext.completeTransition(false)
-            print("Failed transition")
+            print("Wrong transition destination")
             return
         }
         
