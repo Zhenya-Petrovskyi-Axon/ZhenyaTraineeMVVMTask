@@ -16,7 +16,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     private let type: PresentationType
     private let mainViewController: MainVC
     private let detailViewController: DetailsVC
-    private let userImageSnapshot: UIView
+    private var selectedCellImageViewSnapshot: UIView
     private let cellImageViewRect: CGRect
     
     // B2 - 10
@@ -24,7 +24,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         self.type = type
         self.mainViewController = firstView
         self.detailViewController = secondView
-        self.userImageSnapshot = userImageSnapshot
+        self.selectedCellImageViewSnapshot = userImageSnapshot
         
         guard let window = firstView.view.window ?? secondView.view.window,
               let selectedCell = firstView.selectedCell
@@ -71,15 +71,13 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         let imageViewSnapshot: UIView
         
         if isPresenting {
-            imageViewSnapshot = mainVCImageSnapshot
-        } else {
-            imageViewSnapshot = detailVCImageSnapshot
+            selectedCellImageViewSnapshot = mainVCImageSnapshot
         }
         
         // B3 - 23
         toView.alpha = 0
         
-        containerView.addSubview(imageViewSnapshot)
+        [selectedCellImageViewSnapshot, detailVCImageSnapshot].forEach { containerView.addSubview($0) }
         
         // B3 - 25
         let detailVCImageViewRect = detailViewController.userImage.convert(detailViewController.userImage.bounds, to: window)
