@@ -67,32 +67,63 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let isPresenting = type.isPresenting
         
-        // B3 - 22
-        let imageViewSnapshot: UIView
+        // B5 - 40
+            let backgroundView: UIView
+            let fadeView = UIView(frame: containerView.bounds)
+            fadeView.backgroundColor = detailViewController.view.backgroundColor
         
+        // B4 - 33
         if isPresenting {
             selectedCellImageViewSnapshot = mainVCImageSnapshot
+            
+            // B5 - 41
+                    backgroundView = UIView(frame: containerView.bounds)
+                    backgroundView.addSubview(fadeView)
+                    fadeView.alpha = 0
+                } else {
+                    backgroundView = mainViewController.view.snapshotView(afterScreenUpdates: true) ?? fadeView
+                    backgroundView.addSubview(fadeView)
+            
         }
+        
+        
         
         // B3 - 23
         toView.alpha = 0
         
-        [selectedCellImageViewSnapshot, detailVCImageSnapshot].forEach { containerView.addSubview($0) }
+        [backgroundView, selectedCellImageViewSnapshot, detailVCImageSnapshot].forEach { containerView.addSubview($0) }
         
         // B3 - 25
         let detailVCImageViewRect = detailViewController.userImage.convert(detailViewController.userImage.bounds, to: window)
         
-        imageViewSnapshot.frame = isPresenting ? cellImageViewRect : detailVCImageViewRect
+        [selectedCellImageViewSnapshot, detailVCImageSnapshot].forEach {
+                $0.frame = isPresenting ? cellImageViewRect : detailVCImageViewRect
+            }
         
+        detailVCImageSnapshot.alpha = isPresenting ? 0 : 1
+        selectedCellImageViewSnapshot.alpha = isPresenting ? 1 : 0
         // B3 - 27
         UIView.animateKeyframes(withDuration: Self.duration, delay: 0, options: .calculationModeCubic, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 // B3 - 28
-                imageViewSnapshot.frame = isPresenting ? detailVCImageViewRect : self.cellImageViewRect
+                self.selectedCellImageViewSnapshot.frame = isPresenting ? detailVCImageViewRect : self.cellImageViewRect
+                detailVCImageSnapshot.frame = isPresenting ? detailVCImageViewRect : self.cellImageViewRect
+                
+                // B5 - 43
+                            fadeView.alpha = isPresenting ? 1 : 0
+                
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6) {
+                        self.selectedCellImageViewSnapshot.alpha = isPresenting ? 0 : 1
+                        detailVCImageSnapshot.alpha = isPresenting ? 1 : 0
             }
         }, completion: { _ in
             // B3 - 29
-            imageViewSnapshot.removeFromSuperview()
+            self.selectedCellImageViewSnapshot.removeFromSuperview()
+            detailVCImageSnapshot.removeFromSuperview()
+            
+            backgroundView.removeFromSuperview()
             
             // B3 - 30
             toView.alpha = 1
