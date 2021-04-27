@@ -94,7 +94,7 @@ class DetailsVC: UIViewController {
                 let alert = UIAlertController(title: "", message: "Call to \n\(String(describing: self.user!.fullname))?", preferredStyle: .alert)
                 let yesPressed = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
                     application.open(phoneCallURL, options: [:], completionHandler: nil)
-                    print("App will call on real device")
+                    print("Now App should call on real device")
                 })
                 let noPressed = UIAlertAction(title: "No", style: .default, handler: { (action) in
                     print("User decided not to call")
