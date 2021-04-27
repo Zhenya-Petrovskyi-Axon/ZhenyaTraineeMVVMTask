@@ -11,7 +11,7 @@ extension MainVC: UIViewControllerTransitioningDelegate {
     
     // MARK: - Preparing the properties to initialize an instance of Animator for presenting
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        // B2 - 16
+        
         guard let firstViewController = presenting as? MainVC,
               let secondViewController = presented as? DetailsVC,
               let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
@@ -23,7 +23,7 @@ extension MainVC: UIViewControllerTransitioningDelegate {
     
     // MARK: - Preparing the properties to initialize an instance of Animator for dissmissing
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        // B2 - 17
+        
         guard let secondViewController = dismissed as? DetailsVC,
               let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         else { return nil }

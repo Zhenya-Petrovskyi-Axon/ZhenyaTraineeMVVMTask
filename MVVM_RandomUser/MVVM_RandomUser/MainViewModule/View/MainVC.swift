@@ -72,6 +72,7 @@ class MainVC: UIViewController {
     }
 }
 
+// MARK: - UICollectionView delegate & dataSource
 extension MainVC: UICollectionViewDelegate {
     
     // MARK: - When scrolled to the bottom - get more users
