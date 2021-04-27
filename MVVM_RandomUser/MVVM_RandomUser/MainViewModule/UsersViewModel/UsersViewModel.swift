@@ -53,14 +53,14 @@ class UsersViewModel {
         
         DispatchQueue.main.async {
             
-            cell.userName.text = self.usersData[indexPath.row].fullname
+            cell.userCellName.text = self.usersData[indexPath.row].fullname
             
             if let url = URL(string: "\(self.usersData[indexPath.row].picture.large)") {
-                cell.userImage.kf.setImage(with: url)
+                cell.userCellImage.kf.setImage(with: url)
             }
             
-            cell.userImage.layer.masksToBounds = true
-            cell.userImage.layer.cornerRadius = (cell.userImage.frame.height / 2)
+            cell.userCellImage.layer.masksToBounds = true
+            cell.userCellImage.layer.cornerRadius = (cell.userCellImage.frame.height / 2)
             
         }
     }

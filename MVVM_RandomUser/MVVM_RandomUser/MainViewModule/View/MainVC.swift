@@ -62,12 +62,13 @@ class MainVC: UIViewController {
     func presentUserDetailVC(with data: User?) {
         let detailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDetailsVC") as! DetailsVC
         
+        detailsVC.transitioningDelegate = self
+        
         detailsVC.modalPresentationStyle = .custom
         detailsVC.user = data
         
         present(detailsVC, animated: true)
         
-        detailsVC.transitioningDelegate = self
     }
 }
 
@@ -102,7 +103,7 @@ extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         selectedCell = collectionView.cellForItem(at: indexPath) as? UserCollectionViewCell
-        selectedCellImageViewSnapshot = selectedCell?.userImage.snapshotView(afterScreenUpdates: false)
+        selectedCellImageViewSnapshot = selectedCell?.userCellImage.snapshotView(afterScreenUpdates: false)
         
         presentUserDetailVC(with: usersViewModel.usersData[indexPath.row])
     }

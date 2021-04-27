@@ -31,7 +31,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         else { return nil }
         
         // B2 - 11
-        self.cellImageViewRect = selectedCell.userImage.convert(selectedCell.userImage.bounds, to: window)
+        self.cellImageViewRect = selectedCell.userCellImage.convert(selectedCell.userCellImage.bounds, to: window)
     }
     
     // B2 - 12
@@ -58,7 +58,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         // B3 - 21
         guard let selectedCell = mainViewController.selectedCell,
               let window = mainViewController.view.window ?? detailViewController.view.window,
-              let mainVCImageSnapshot = selectedCell.userImage.snapshotView(afterScreenUpdates: true),
+              let mainVCImageSnapshot = selectedCell.userCellImage.snapshotView(afterScreenUpdates: true),
               let detailVCImageSnapshot = detailViewController.userImage.snapshotView(afterScreenUpdates: true)
         else {
             transitionContext.completeTransition(true)

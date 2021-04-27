@@ -44,8 +44,8 @@
             </collectionViewCellContentView>
             <size key="customSize" width="165" height="195"/>
             <connections>
-                <outlet property="userImage" destination="9Fb-3O-Tdh" id="7lf-rE-pFD"/>
-                <outlet property="userName" destination="MhH-iO-2Eh" id="NLt-Bx-psg"/>
+                <outlet property="userCellImage" destination="9Fb-3O-Tdh" id="7lf-rE-pFD"/>
+                <outlet property="userCellName" destination="MhH-iO-2Eh" id="NLt-Bx-psg"/>
             </connections>
             <point key="canvasLocation" x="335.50724637681162" y="-36.495535714285715"/>
         </collectionViewCell>
