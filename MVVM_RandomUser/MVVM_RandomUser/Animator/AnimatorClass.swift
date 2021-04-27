@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Main animator class
 final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    static let duration: TimeInterval = 1.25
+    static let duration: TimeInterval = 1.00
     
     private let type: PresentationType
     private let mainViewController: MainVC
@@ -27,7 +27,9 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         
         guard let window = firstView.view.window ?? secondView.view.window,
               let selectedCell = firstView.selectedCell
-        else { return nil }
+        else {
+            // In case of failure use default animation
+            return nil }
         
         // Getting the Frame of the Image View of the Cell relative to the window’s frame
         self.cellImageViewRect = selectedCell.userCellImage.convert(selectedCell.userCellImage.bounds, to: window)
@@ -41,10 +43,10 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     
     // MARK: - All of the transition logic and animations
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        // B2 - 18
+        
+        // Container as a view that used to run animations on
         let containerView = transitionContext.containerView
         
-        // B2 - 19
         guard let toView = detailViewController.view
         else {
             transitionContext.completeTransition(false)
@@ -54,7 +56,7 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         
         containerView.addSubview(toView)
         
-        // B3 - 21
+        // Assigning the window of the screen that for current presentation or dissmissal
         guard let selectedCell = mainViewController.selectedCell,
               let window = mainViewController.view.window ?? detailViewController.view.window,
               let mainVCImageSnapshot = selectedCell.userCellImage.snapshotView(afterScreenUpdates: true),
@@ -66,68 +68,66 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let isPresenting = type.isPresenting
         
-        // B5 - 40
-            let backgroundView: UIView
-            let fadeView = UIView(frame: containerView.bounds)
-            fadeView.backgroundColor = detailViewController.view.backgroundColor
+        // Instantiate a background and fade views
+        let backgroundView: UIView
+        let fadeView = UIView(frame: containerView.bounds)
+        fadeView.backgroundColor = detailViewController.view.backgroundColor
         
-        // B4 - 33
         if isPresenting {
             selectedCellImageViewSnapshot = mainVCImageSnapshot
-            
-            // B5 - 41
-                    backgroundView = UIView(frame: containerView.bounds)
-                    backgroundView.addSubview(fadeView)
-                    fadeView.alpha = 0
-                } else {
-                    backgroundView = mainViewController.view.snapshotView(afterScreenUpdates: true) ?? fadeView
-                    backgroundView.addSubview(fadeView)
-            
+            backgroundView = UIView(frame: containerView.bounds)
+            backgroundView.addSubview(fadeView)
+            fadeView.alpha = 0
+        } else {
+            backgroundView = mainViewController.view.snapshotView(afterScreenUpdates: true) ?? fadeView
+            backgroundView.addSubview(fadeView)
         }
         
-        
-        
-        // B3 - 23
+        // Fading View that is presenting
         toView.alpha = 0
         
         [backgroundView, selectedCellImageViewSnapshot, detailVCImageSnapshot].forEach { containerView.addSubview($0) }
         
-        // B3 - 25
+        // Getting frame of DetailVC to transition from cell to view
         let detailVCImageViewRect = detailViewController.userImage.convert(detailViewController.userImage.bounds, to: window)
         
+        // Which frame size to use
         [selectedCellImageViewSnapshot, detailVCImageSnapshot].forEach {
-                $0.frame = isPresenting ? cellImageViewRect : detailVCImageViewRect
-            }
+            $0.frame = isPresenting ? cellImageViewRect : detailVCImageViewRect
+        }
         
+        // Wich transparency to use in wich case of presentation
         detailVCImageSnapshot.alpha = isPresenting ? 0 : 1
         selectedCellImageViewSnapshot.alpha = isPresenting ? 1 : 0
-        // B3 - 27
+        
+        // MARK: - Animation
         UIView.animateKeyframes(withDuration: Self.duration, delay: 0, options: .calculationModeCubic, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                // B3 - 28
+                
+                // Which frame size's of snapshots to use with presenting or dissmissing animation's
                 self.selectedCellImageViewSnapshot.frame = isPresenting ? detailVCImageViewRect : self.cellImageViewRect
                 detailVCImageSnapshot.frame = isPresenting ? detailVCImageViewRect : self.cellImageViewRect
                 
-                // B5 - 43
-                            fadeView.alpha = isPresenting ? 1 : 0
-                
+                // Changing alpha of fade view for the fade animation
+                fadeView.alpha = isPresenting ? 1 : 0
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6) {
-                        self.selectedCellImageViewSnapshot.alpha = isPresenting ? 0 : 1
-                        detailVCImageSnapshot.alpha = isPresenting ? 1 : 0
+                // Which transparency for snapshots to use when presentation animates
+                self.selectedCellImageViewSnapshot.alpha = isPresenting ? 0 : 1
+                detailVCImageSnapshot.alpha = isPresenting ? 1 : 0
             }
+            // MARK: -  What to do when transition is completed
         }, completion: { _ in
-            // B3 - 29
+            
+            // Cleanup and remove all the views used during transition
             self.selectedCellImageViewSnapshot.removeFromSuperview()
             detailVCImageSnapshot.removeFromSuperview()
-            
             backgroundView.removeFromSuperview()
             
-            // B3 - 30
+            // non-transparent again
             toView.alpha = 1
             
-            // B3 - 31
             transitionContext.completeTransition(true)
         })
         
