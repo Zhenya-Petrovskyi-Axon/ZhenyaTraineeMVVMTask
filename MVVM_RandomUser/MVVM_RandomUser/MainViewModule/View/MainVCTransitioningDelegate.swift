@@ -19,7 +19,7 @@ extension MainVC: UIViewControllerTransitioningDelegate {
         
         print(selectedCellImageViewSnapshot)
         
-        animator = Animator(type: .present, fromVC: firstViewController, toVC: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
+        animator = Animator(type: .present, firstView: firstViewController, secondView: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
         return animator
     }
     
@@ -30,7 +30,7 @@ extension MainVC: UIViewControllerTransitioningDelegate {
               let selectedCellImageViewSnapshot = selectedCellImageViewSnapshot
         else { return nil }
         
-        animator = Animator(type: .dismiss, fromVC: self, toVC: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
+        animator = Animator(type: .dismiss, firstView: self, secondView: secondViewController, userImageSnapshot: selectedCellImageViewSnapshot)
         return animator
     }
 }

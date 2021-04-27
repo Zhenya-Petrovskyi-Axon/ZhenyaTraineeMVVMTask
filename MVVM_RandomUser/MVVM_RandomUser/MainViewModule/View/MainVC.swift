@@ -62,7 +62,7 @@ class MainVC: UIViewController {
     func presentUserDetailVC(with data: User?) {
         let detailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserDetailsVC") as! DetailsVC
         
-        detailsVC.modalPresentationStyle = .fullScreen
+        detailsVC.modalPresentationStyle = .custom
         detailsVC.user = data
         
         present(detailsVC, animated: true)
