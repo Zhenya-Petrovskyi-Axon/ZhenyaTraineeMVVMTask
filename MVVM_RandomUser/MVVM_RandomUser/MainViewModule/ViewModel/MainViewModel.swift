@@ -9,7 +9,7 @@ import Foundation
 import Kingfisher
 
 // MARK: - Model to handle with main ViewController
-class UsersViewModel {
+class MainViewModel {
     
     private var apiManager: APIManager!
     private(set) var usersData: [User] = [] {
@@ -29,6 +29,10 @@ class UsersViewModel {
         getUsersData()
     }
     
+    var currentPage: Int {
+        return Int.random(in: 1...Int(apiManager.maxUsersCount / apiManager.resultsPerPage))
+    }
+    
     // MARK: - Get Users Data from server
     func getUsersData() {
         
@@ -38,7 +42,7 @@ class UsersViewModel {
         }
         
         // MARK: Make a call to get users
-        apiManager.getUsers { [weak self] userData in
+        apiManager.getUsers(page: currentPage) { [weak self] userData in
             switch userData {
             case .success(let users):
                 self?.usersData.append(contentsOf: users)
@@ -49,21 +53,9 @@ class UsersViewModel {
     }
     
     // MARK: - Setup displayable cell
-    func setUpCell(_ cell: UserCollectionViewCell, indexPath: IndexPath) {
-        
-        DispatchQueue.main.async {
-            
-            cell.userCellName.text = self.usersData[indexPath.row].fullname
-            
-            if let url = URL(string: "\(self.usersData[indexPath.row].picture.large)") {
-                cell.userCellImage.kf.setImage(with: url)
-            }
-            
-            cell.userCellImage.layer.masksToBounds = true
-            cell.userCellImage.layer.cornerRadius = (cell.userCellImage.frame.height / 2)
-            cell.userCellImage.layer.borderWidth = 3
-            cell.userCellImage.layer.borderColor = UIColor.systemGray.cgColor
-            
-        }
+    func viewModelForCell(_ indexPath: IndexPath) -> UserCollectionViewModel {
+        let user = usersData[indexPath.row]
+        return UserCollectionViewModel(userModel: UserCellModel(userCellImage: user.picture.medium, userCellName: user.fullname))
     }
+    
 }

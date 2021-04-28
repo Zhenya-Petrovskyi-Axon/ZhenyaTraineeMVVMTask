@@ -36,7 +36,7 @@ class DetailsVC: UIViewController {
         guard let user = user else { return }
         
         userNameLabel.text = "My name: \(user.fullname)"
-        userGenderLabel.text = "Gender: \(user.gender.rawValue)"
+        userGenderLabel.text = "Gender: \(user.gender.rawValue.firstUppercased)"
         userDobLabel.text = "Woth born: \(formatDate(date: user.dob.date))"
         userLocationLabel.text = "From: \(user.location.country)"
         

@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     var selectedCell: UserCollectionViewCell?
     var selectedCellImageViewSnapshot: UIView?
     
-    private let usersViewModel = UsersViewModel()
+    private let usersViewModel = MainViewModel()
     
     var animator: Animator?
     
@@ -95,8 +95,8 @@ extension MainVC: UICollectionViewDataSource {
         
         let cell = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
         
-        usersViewModel.setUpCell(cell, indexPath: indexPath)
-        
+        cell.viewModel = usersViewModel.viewModelForCell(indexPath)
+
         return cell
     }
     
