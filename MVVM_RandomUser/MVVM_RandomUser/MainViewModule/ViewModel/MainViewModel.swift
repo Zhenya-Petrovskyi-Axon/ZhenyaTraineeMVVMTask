@@ -49,6 +49,12 @@ class MainViewModel {
     }
     
     // MARK: - Setup displayable cell
+    func viewModelForCell(_ indexPath: IndexPath) -> UserCollectionViewModel {
+        let user = usersData[indexPath.row]
+        return UserCollectionViewModel(userModel: UserCellModel(userCellImage: user.picture.medium, userCellName: user.fullname))
+    }
+    
+    // MARK: - Setup displayable cell
     func setUpCell(_ cell: UserCollectionViewCell, indexPath: IndexPath) {
         
         DispatchQueue.main.async {

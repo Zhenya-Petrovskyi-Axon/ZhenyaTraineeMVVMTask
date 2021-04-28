@@ -95,7 +95,7 @@ extension MainVC: UICollectionViewDataSource {
         
         let cell = usersCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
         
-        usersViewModel.setUpCell(cell, indexPath: indexPath)
+        cell.viewModel = usersViewModel.viewModelForCell(indexPath)
         
         return cell
     }
