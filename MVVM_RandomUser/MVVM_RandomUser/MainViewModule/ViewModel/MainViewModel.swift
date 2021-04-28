@@ -65,10 +65,7 @@ class MainViewModel {
                 cell.userCellImage.kf.setImage(with: url)
             }
             
-            cell.userCellImage.layer.masksToBounds = true
-            cell.userCellImage.layer.cornerRadius = (cell.userCellImage.frame.height / 2)
-            cell.userCellImage.layer.borderWidth = 3
-            cell.userCellImage.layer.borderColor = UIColor.systemGray.cgColor
+            
             
         }
     }

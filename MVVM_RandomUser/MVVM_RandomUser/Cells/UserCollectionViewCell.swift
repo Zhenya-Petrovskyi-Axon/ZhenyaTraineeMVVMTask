@@ -33,10 +33,18 @@ class UserCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func setupCellImageView() {
+        
+        userCellImage.layer.masksToBounds = true
+        userCellImage.layer.cornerRadius = (userCellImage.frame.height / 2)
+        userCellImage.layer.borderWidth = 3
+        userCellImage.layer.borderColor = UIColor.systemGray.cgColor
+        
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-//        _ = setupOnce
+        setupCellImageView()
     }
     
     override func awakeFromNib() {
