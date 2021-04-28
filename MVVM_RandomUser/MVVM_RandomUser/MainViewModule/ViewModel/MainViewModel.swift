@@ -29,6 +29,10 @@ class MainViewModel {
         getUsersData()
     }
     
+    var currentPage: Int {
+        return Int.random(in: 1...Int(apiManager.maxUsersCount / apiManager.resultsPerPage))
+    }
+    
     // MARK: - Get Users Data from server
     func getUsersData() {
         
@@ -38,7 +42,7 @@ class MainViewModel {
         }
         
         // MARK: Make a call to get users
-        apiManager.getUsers { [weak self] userData in
+        apiManager.getUsers(page: currentPage) { [weak self] userData in
             switch userData {
             case .success(let users):
                 self?.usersData.append(contentsOf: users)
@@ -54,19 +58,4 @@ class MainViewModel {
         return UserCollectionViewModel(userModel: UserCellModel(userCellImage: user.picture.medium, userCellName: user.fullname))
     }
     
-    // MARK: - Setup displayable cell
-    func setUpCell(_ cell: UserCollectionViewCell, indexPath: IndexPath) {
-        
-        DispatchQueue.main.async {
-            
-            cell.userCellName.text = self.usersData[indexPath.row].fullname
-            
-            if let url = URL(string: "\(self.usersData[indexPath.row].picture.large)") {
-                cell.userCellImage.kf.setImage(with: url)
-            }
-            
-            
-            
-        }
-    }
 }

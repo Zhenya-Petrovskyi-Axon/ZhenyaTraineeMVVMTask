@@ -18,7 +18,7 @@ enum NetworkError: Error {
 
 // MARK: - Protocols
 protocol APIManagerProtocol: class {
-    func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void)
+    func getUsers(page: Int, completion: @escaping (Result<[User], NetworkError>) -> Void)
 }
 
 // MARK: - Network Data Manager
@@ -39,11 +39,7 @@ class APIManager: APIManagerProtocol {
     private let decoder = JSONDecoder()
     
     // MARK: - Main function to get users
-    func getUsers(completion: @escaping (Result<[User], NetworkError>) -> Void) {
-        
-        // Page for url to make a request
-        let page = Int.random(in: 1...Int((maxUsersCount / resultsPerPage)))
-        print("Page for downloading a set of users is \(page)")
+    func getUsers(page: Int, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
         let fullUrl = "\(baseUrl)\(resultsPerPage)\(resultsForPage)\(page)"
         
