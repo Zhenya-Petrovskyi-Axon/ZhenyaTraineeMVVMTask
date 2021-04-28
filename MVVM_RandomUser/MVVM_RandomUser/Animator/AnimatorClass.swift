@@ -7,6 +7,17 @@
 
 import UIKit
 
+// Used to pass to Animator to define which animation to use
+enum PresentationType {
+    
+    case present
+    case dismiss
+    
+    var isPresenting: Bool {
+        return self == .present
+    }
+}
+
 // MARK: - Main animator class
 final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
     
@@ -131,17 +142,6 @@ final class Animator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(true)
         })
         
-    }
-}
-
-// Used to pass to Animator to define which animation to use
-enum PresentationType {
-    
-    case present
-    case dismiss
-    
-    var isPresenting: Bool {
-        return self == .present
     }
 }
 
